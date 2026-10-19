@@ -18,5 +18,6 @@ COPY --from=build /app/build/career-recommendation-system/ \
     /usr/local/tomcat/webapps/ROOT/
 
 EXPOSE 10000
-
-CMD ["catalina.sh", "run"]
+EXPOSE 10000
+RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml
+CMD ["catalina.sh", "run"
